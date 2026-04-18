@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Chayya — From Anil 💚</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Dancing+Script:wght@400;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#ff4757;--rose:#ff6b81;--gold:#ffd32a;--green:#2ed573;
+  --teal:#1e90ff;--purple:#c084fc;--dark:#050507;
+  --glass:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.09);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{overflow-x:hidden;background:var(--dark);font-family:'Cormorant Garamond',serif;color:#fff;cursor:none;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:#0a0a0a;}
+::-webkit-scrollbar-thumb{background:linear-gradient(#ff4757,#2ed573);border-radius:5px;}
+
+/* CURSOR */
+.love-cursor{width:26px;height:26px;position:fixed;pointer-events:none;z-index:9999;font-size:17px;transform:translate(-50%,-50%);filter:drop-shadow(0 0 8px rgba(255,71,87,0.9));transition:transform 0.08s;}
+
+/* LOADER */
+.loader{position:fixed;inset:0;background:#000;z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 1.2s ease,visibility 1.2s;}
+.loader.done{opacity:0;visibility:hidden;pointer-events:none;}
+.loader-heart{font-size:4rem;animation:lp 1s infinite;}
+@keyframes lp{0%,100%{transform:scale(1)}50%{transform:scale(1.3)}}
+.loader-name{font-family:'Dancing Script',cursive;font-size:2.5rem;margin:0.8rem 0 0.2rem;
+  background:linear-gradient(135deg,#ff4757,#ffd32a,#2ed573);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.loader-sub{color:#2a2a2a;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1.5rem;}
+.loader-bar{width:200px;height:2px;background:rgba(255,255,255,0.07);border-radius:2px;overflow:hidden;}
+.loader-fill{height:100%;background:linear-gradient(90deg,var(--red),var(--gold),var(--green));width:0%;transition:width 2.5s ease;}
+
+/* YT IFRAME — completely hidden */
+#yt-frame-wrap{position:fixed;top:-9999px;left:-9999px;width:0;height:0;overflow:hidden;pointer-events:none;}
+
+/* BACKGROUNDS */
+.cinematic-bg{position:fixed;inset:0;z-index:-3;background:radial-gradient(ellipse at 20% 60%,#1a0a1e 0%,#0d0d1a 50%,#050507 100%);}
+.aurora{position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:radial-gradient(circle at 15% 40%,rgba(255,71,87,0.13) 0%,transparent 45%),
+             radial-gradient(circle at 85% 25%,rgba(46,213,115,0.1) 0%,transparent 40%),
+             radial-gradient(circle at 50% 85%,rgba(192,132,252,0.07) 0%,transparent 40%);
+  animation:auroraShift 22s ease infinite alternate;}
+@keyframes auroraShift{0%{transform:translate(0,0)}50%{transform:translate(40px,-30px)}100%{transform:translate(-25px,25px)}}
+
+/* FLOATING PETALS */
+.hearts-bg{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden;}
+.h-p{position:absolute;opacity:0;animation:floatUp 20s linear infinite;}
+@keyframes floatUp{0%{transform:translateY(100vh) rotate(0deg) scale(0.4);opacity:0;}6%{opacity:0.65;}94%{opacity:0.65;}100%{transform:translateY(-120px) rotate(560deg) scale(1.2);opacity:0;}}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:500;padding:0.85rem 1.5rem;background:rgba(5,5,7,0.85);backdrop-filter:blur(22px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{font-family:'Dancing Script',cursive;font-size:1.4rem;
+  background:linear-gradient(135deg,var(--red),var(--gold),var(--green));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.nav-links{display:flex;gap:1.6rem;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;}
+.nav-links a{color:rgba(255,255,255,0.38);text-decoration:none;transition:color 0.3s;}
+.nav-links a:hover{color:var(--red);}
+
+/* GLASS */
+.glass{background:var(--glass);backdrop-filter:blur(24px);border:1px solid var(--border);box-shadow:0 8px 40px rgba(0,0,0,0.5);}
+
+/* GRADIENT TEXT */
+.love-gradient{background:linear-gradient(135deg,#ff4757 0%,#ff6b81 25%,#ffd32a 50%,#2ed573 75%,#c084fc 100%);background-size:300% 300%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradShift 7s ease infinite;}
+@keyframes gradShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+/* CHAYYA NAME — special styling */
+.chayya-name{
+  font-family:'Dancing Script',cursive;
+  font-size:clamp(3.5rem,12vw,8rem);
+  font-weight:700;
+  background:linear-gradient(135deg,#ff6b81,#ffd32a,#2ed573,#c084fc,#ff6b81);
+  background-size:300% 300%;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:gradShift 5s ease infinite;
+  text-shadow:none;
+  display:block;
+  line-height:1.1;
+  letter-spacing:0.02em;
+  position:relative;
+}
+.chayya-name::after{
+  content:'✦';
+  position:absolute;top:-0.3em;right:-0.5em;
+  font-size:0.3em;color:rgba(255,215,0,0.6);
+  animation:starSpin 4s linear infinite;
+}
+@keyframes starSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+.name-glow{
+  position:relative;display:inline-block;
+  filter:drop-shadow(0 0 30px rgba(192,132,252,0.4)) drop-shadow(0 0 60px rgba(255,107,107,0.2));
+}
+
+.heartbeat{display:inline-block;animation:hb 2.5s infinite;}
+@keyframes hb{0%,100%{transform:scale(1)}15%{transform:scale(1.3)}30%{transform:scale(1)}45%{transform:scale(1.18)}60%{transform:scale(1)}}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(50px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1);}
+.reveal.active{opacity:1;transform:translateY(0);}
+
+/* MUSIC BTN */
+.music-wrap{position:fixed;bottom:1.5rem;right:1.5rem;z-index:500;display:flex;flex-direction:column;align-items:center;gap:0.4rem;}
+.music-btn{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--red),var(--rose));border:2px solid rgba(255,255,255,0.2);color:#fff;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(255,71,87,0.5);animation:mpulse 2.5s infinite;transition:transform 0.3s ease;}
+@keyframes mpulse{0%,100%{box-shadow:0 0 30px rgba(255,71,87,0.5)}50%{box-shadow:0 0 60px rgba(255,71,87,0.85)}}
+.music-btn.playing{animation:spinBtn 3s linear infinite;}
+@keyframes spinBtn{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.music-label{font-size:0.58rem;color:rgba(255,71,87,0.6);letter-spacing:0.08em;text-transform:uppercase;}
+
+/* ═══════ HERO ═══════ */
+#home{min-height:100vh;display:flex;align-items:center;justify-content:center;padding-top:80px;}
+.hero-inner{text-align:center;max-width:820px;margin:0 auto;padding:2rem 1.5rem;}
+
+/* EYES */
+.eyes-wrap{width:300px;height:140px;margin:0 auto 2rem;position:relative;}
+.her-eye{position:absolute;width:128px;height:78px;background:linear-gradient(135deg,#f5f5f5,#ddd);border-radius:50% 50% 50% 50%/60% 60% 40% 40%;top:35px;overflow:hidden;box-shadow:0 0 50px rgba(46,213,115,0.4),0 15px 40px rgba(0,0,0,0.6);animation:eyeBlink 5s infinite;border:1.5px solid rgba(255,255,255,0.12);}
+.her-eye.left{left:18px;}.her-eye.right{right:18px;}
+.lashes{position:absolute;width:100%;height:20px;top:-7px;background:repeating-linear-gradient(90deg,transparent 0,transparent 5px,rgba(0,0,0,0.95) 5px,rgba(0,0,0,0.95) 7px);clip-path:polygon(5% 100%,12% 0%,21% 100%,30% 0%,39% 100%,48% 0%,57% 100%,66% 0%,75% 100%,84% 0%,93% 100%);}
+.iris{position:absolute;width:56px;height:56px;background:radial-gradient(circle at 32% 32%,#2ed573,#1a8040 55%,#0d4a25 100%);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);box-shadow:0 0 35px rgba(46,213,115,0.7);}
+.iris-lines{position:absolute;inset:0;border-radius:50%;background:repeating-conic-gradient(from 0deg,transparent 0deg,rgba(0,0,0,0.12) 7deg,transparent 14deg);}
+.pupil{position:absolute;width:22px;height:22px;background:radial-gradient(circle at 30% 30%,#1a1a1a,#000);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);}
+.shine{position:absolute;width:16px;height:16px;background:radial-gradient(circle,rgba(255,255,255,0.95),transparent 70%);border-radius:50%;top:10%;left:15%;}
+@keyframes eyeBlink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(0.07)}}
+
+.hero-for{font-size:0.65rem;letter-spacing:0.4em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:0.5rem;}
+.hero-line{width:80px;height:2px;background:linear-gradient(90deg,var(--red),var(--purple));margin:1.2rem auto 1.8rem;border-radius:2px;}
+.hero-tagline{font-size:1.1rem;color:rgba(255,255,255,0.5);line-height:1.9;margin-bottom:0.8rem;}
+.hero-tagline strong{color:#fff;}
+.hero-hindi{font-family:'Tiro Devanagari Hindi',serif;font-size:0.88rem;color:rgba(255,255,255,0.28);display:block;margin-top:0.3rem;}
+.days-badge{display:inline-block;margin:1.2rem 0;padding:0.55rem 1.5rem;border-radius:50px;background:linear-gradient(135deg,rgba(255,71,87,0.1),rgba(192,132,252,0.06));border:1px solid rgba(255,71,87,0.22);font-size:0.78rem;color:rgba(255,255,255,0.45);}
+.days-badge span{color:var(--red);}
+.hero-quote{font-family:'Dancing Script',cursive;font-size:1.25rem;color:rgba(192,132,252,0.8);display:block;margin:1.2rem 0 2rem;}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);animation:bd 2s infinite;color:rgba(255,255,255,0.18);font-size:1.2rem;}
+@keyframes bd{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+/* ═══════ ROMANTIC SECTION ═══════ */
+#romantic{padding:5rem 1.5rem;}
+.romantic-inner{max-width:820px;margin:0 auto;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,5vw,3rem);text-align:center;margin-bottom:0.6rem;}
+.section-sub{text-align:center;color:rgba(255,255,255,0.28);font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:3rem;}
+
+/* Rose / petal animation */
+.rose-divider{text-align:center;margin:2rem 0;font-size:1.8rem;letter-spacing:0.5rem;opacity:0.5;animation:roseFade 3s ease infinite alternate;}
+@keyframes roseFade{from{opacity:0.3}to{opacity:0.7}}
+
+/* Star-letter cards */
+.letter-card{padding:3rem 2.5rem;border-radius:2.5rem;margin-bottom:2rem;position:relative;overflow:hidden;}
+.letter-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(192,132,252,0.06),transparent,rgba(255,107,107,0.04));pointer-events:none;}
+.letter-intro{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.22);margin-bottom:1.5rem;}
+.letter-body{font-size:1.1rem;color:rgba(255,255,255,0.58);line-height:2.2;}
+.letter-body strong{color:#fff;}
+.letter-body .h{font-family:'Tiro Devanagari Hindi',serif;color:rgba(255,255,255,0.35);font-size:0.92rem;display:block;margin-top:0.3rem;}
+.letter-sign{margin-top:2rem;text-align:right;font-family:'Dancing Script',cursive;font-size:1.3rem;color:rgba(255,255,255,0.35);}
+
+/* Features of her */
+.her-features{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0;}
+.feat-item{padding:1.5rem;border-radius:1.3rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);text-align:center;transition:transform 0.3s ease;}
+.feat-item:hover{transform:translateY(-4px);}
+.feat-icon{font-size:1.8rem;margin-bottom:0.6rem;display:block;}
+.feat-title{font-size:0.88rem;color:rgba(255,255,255,0.55);line-height:1.7;}
+.feat-title strong{color:rgba(255,255,255,0.85);display:block;margin-bottom:0.2rem;}
+
+/* ═══════ CODING PRIDE ═══════ */
+#pride{padding:5rem 1.5rem;background:rgba(0,0,0,0.15);}
+.pride-inner{max-width:820px;margin:0 auto;}
+.pride-card{padding:3rem 2.5rem;border-radius:2.5rem;position:relative;overflow:hidden;}
+.pride-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(46,213,115,0.05),transparent,rgba(255,71,87,0.04));pointer-events:none;}
+.pride-top{display:flex;gap:1.2rem;margin-bottom:2rem;flex-wrap:wrap;}
+.code-badge{border-radius:1rem;padding:1.2rem 1.4rem;flex:1;min-width:120px;text-align:center;}
+.code-badge .cb-num{font-family:'Poppins',sans-serif;font-size:2rem;font-weight:800;}
+.code-badge .cb-label{font-size:0.68rem;color:rgba(255,255,255,0.28);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.2rem;}
+.pride-para{font-size:1rem;color:rgba(255,255,255,0.46);line-height:2.1;margin-bottom:1rem;}
+.pride-para strong{color:rgba(255,255,255,0.82);}
+.pride-para .h{font-family:'Tiro Devanagari Hindi',serif;font-size:0.88rem;color:rgba(255,255,255,0.28);display:block;margin-top:0.2rem;}
+.tech-pills{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem;}
+.tech-pill{padding:0.3rem 0.85rem;border-radius:50px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.09);font-size:0.7rem;color:rgba(255,255,255,0.35);letter-spacing:0.07em;}
+
+/* ═══════ SHAYARI ═══════ */
+#shayari{padding:6rem 1.5rem;background:rgba(0,0,0,0.18);}
+.shayari-inner{max-width:820px;margin:0 auto;}
+.sh-card{border-radius:2rem;padding:3rem 2.5rem;margin-bottom:2.5rem;position:relative;overflow:hidden;transition:transform 0.5s cubic-bezier(.16,1,.3,1);}
+.sh-card:hover{transform:scale(1.012) translateY(-3px);}
+.sh-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,71,87,0.06),transparent,rgba(46,213,115,0.04));pointer-events:none;}
+.sh-emojis{text-align:center;font-size:1.7rem;margin-bottom:1.8rem;display:flex;justify-content:center;gap:0.8rem;}
+.hindi-text{font-family:'Tiro Devanagari Hindi',serif;direction:ltr;line-height:2.2;}
+.sh-big{background:linear-gradient(135deg,var(--red),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-size:clamp(1.5rem,4vw,2.1rem);text-align:center;}
+.sh-white{font-size:clamp(1.3rem,3.5vw,1.9rem);color:#f0f0f0;text-align:center;margin-bottom:0.3rem;}
+.sh-red{font-size:clamp(1.3rem,3.5vw,1.9rem);color:var(--red);text-align:center;margin-bottom:0.3rem;}
+.sh-green{font-size:clamp(1.3rem,3.8vw,2rem);color:var(--green);text-align:center;margin-bottom:0.3rem;}
+.sh-purple{font-size:clamp(1.3rem,3.8vw,2rem);color:var(--purple);text-align:center;margin-bottom:0.3rem;}
+.sh-divider{width:50px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);margin:1.5rem auto;}
+.sh-english{font-size:0.88rem;color:rgba(255,255,255,0.3);font-style:italic;text-align:center;line-height:1.9;margin-top:0.5rem;}
+.sh-bottom-emojis{display:flex;justify-content:center;gap:1rem;margin:1.5rem 0 0.5rem;font-size:1.4rem;}
+.sh-author{text-align:right;font-size:0.65rem;color:rgba(255,255,255,0.16);letter-spacing:0.15em;text-transform:uppercase;margin-top:0.8rem;}
+
+/* ═══════ CONNECT ═══════ */
+#heart{padding:6rem 1.5rem;background:rgba(0,0,0,0.22);}
+.contact-inner{max-width:720px;margin:0 auto;text-align:center;}
+.q-card{padding:3.5rem 2.5rem;border-radius:2.5rem;margin-bottom:2rem;}
+.big-q{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,5vw,2.7rem);font-style:italic;margin-bottom:0.5rem;line-height:1.3;}
+.big-q-hindi{font-family:'Tiro Devanagari Hindi',serif;font-size:clamp(0.95rem,2.5vw,1.2rem);color:rgba(255,255,255,0.38);margin-bottom:1.8rem;line-height:2;}
+.q-sub{color:rgba(255,255,255,0.26);font-size:0.85rem;margin-bottom:2.5rem;line-height:1.9;}
+
+/* ALL FOUR BUTTONS — equal style, big card */
+.btn-row{display:flex;gap:0.9rem;justify-content:center;flex-wrap:wrap;}
+.choice-btn{
+  padding:1.1rem 1.8rem;border-radius:1.2rem;
+  color:#fff;cursor:pointer;position:relative;overflow:hidden;
+  transition:all 0.4s cubic-bezier(.16,1,.3,1);
+  min-width:175px;border:2px solid transparent;
+  font-family:'Tiro Devanagari Hindi',serif;
+  text-align:center;
+}
+.choice-btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.12),transparent);transition:left 0.6s;}
+.choice-btn:hover::before{left:100%;}
+.choice-btn:hover{transform:translateY(-5px) scale(1.03);}
+.choice-btn .b-emoji{font-size:1.4rem;display:block;margin-bottom:0.35rem;}
+.choice-btn .b-text{font-size:1rem;display:block;font-weight:600;}
+.choice-btn .b-sub{font-size:0.68rem;display:block;margin-top:0.25rem;font-family:'Cormorant Garamond',serif;font-style:italic;opacity:0.55;}
+
+/* YES — green */
+.btn-yes{background:linear-gradient(135deg,#0f3a0f,#1a5a1a);border-color:rgba(46,213,115,0.55);box-shadow:0 8px 30px rgba(46,213,115,0.18);}
+.btn-yes:hover{box-shadow:0 22px 55px rgba(46,213,115,0.45);border-color:rgba(46,213,115,1);}
+/* MAYBE — blue */
+.btn-maybe{background:linear-gradient(135deg,rgba(15,45,110,0.6),rgba(10,30,90,0.7));border-color:rgba(30,144,255,0.45);box-shadow:0 8px 30px rgba(30,144,255,0.14);}
+.btn-maybe:hover{box-shadow:0 22px 55px rgba(30,144,255,0.38);border-color:rgba(30,144,255,1);}
+/* NO — rose/red */
+.btn-no{background:linear-gradient(135deg,rgba(70,15,15,0.6),rgba(50,8,8,0.7));border-color:rgba(255,71,87,0.45);box-shadow:0 8px 30px rgba(255,71,87,0.14);}
+.btn-no:hover{box-shadow:0 22px 55px rgba(255,71,87,0.38);border-color:rgba(255,71,87,1);}
+/* CHANGE — purple (same size as others) */
+.btn-change{background:linear-gradient(135deg,rgba(80,20,100,0.5),rgba(50,10,80,0.6));border-color:rgba(192,132,252,0.45);box-shadow:0 8px 30px rgba(192,132,252,0.12);}
+.btn-change:hover{box-shadow:0 22px 55px rgba(192,132,252,0.38);border-color:rgba(192,132,252,1);}
+
+/* RESPONSE SECTIONS */
+.response-section{display:none;animation:fiu 1s ease forwards;}
+.response-section.show{display:block;}
+@keyframes fiu{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+
+/* Emotional shayri box */
+.emo-shayri{margin:2rem 0;padding:2rem 2.5rem;border-radius:1.5rem;background:rgba(0,0,0,0.35);border-left:3px solid var(--red);text-align:center;}
+.emo-shayri .es-hindi{font-family:'Tiro Devanagari Hindi',serif;font-size:clamp(1.1rem,3vw,1.6rem);color:rgba(255,255,255,0.82);line-height:2.2;margin-bottom:1rem;}
+.emo-shayri .es-eng{font-size:0.88rem;color:rgba(255,255,255,0.3);font-style:italic;line-height:1.8;}
+.emo-shayri .es-author{font-size:0.63rem;color:rgba(255,255,255,0.16);letter-spacing:0.12em;text-transform:uppercase;margin-top:0.8rem;}
+
+/* ═══ YES SECTION ═══ */
+.yes-hero{padding:2.5rem 2rem;border-radius:2rem;background:linear-gradient(135deg,rgba(10,40,10,0.92),rgba(5,25,5,0.96));border:1px solid rgba(46,213,115,0.22);}
+.yes-big{font-family:'Poppins',sans-serif;font-size:clamp(1.8rem,7vw,3.2rem);font-weight:900;text-align:center;margin-bottom:0.4rem;background:linear-gradient(135deg,#ff4757,#ffd32a,#2ed573);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradShift 4s ease infinite;}
+.yes-sub{font-family:'Dancing Script',cursive;font-size:1.35rem;text-align:center;color:#fff;margin-bottom:0.3rem;}
+.yes-quote{font-style:italic;color:rgba(255,255,255,0.35);font-size:0.82rem;text-align:center;margin-bottom:1.3rem;}
+.yes-inner{background:rgba(0,0,0,0.45);border-radius:1.2rem;padding:1.2rem;margin:1rem 0;text-align:center;}
+.yes-iam{font-size:0.95rem;color:rgba(255,255,255,0.5);margin-bottom:0.3rem;}
+.yes-love{font-family:'Poppins',sans-serif;font-size:1.15rem;font-weight:700;color:var(--gold);letter-spacing:0.04em;}
+.cc-wa{display:flex;align-items:center;gap:1rem;padding:1.2rem 1.5rem;border-radius:1.1rem;background:rgba(37,211,102,0.09);border:1px solid rgba(37,211,102,0.25);text-decoration:none;color:#fff;margin-bottom:0.8rem;transition:all 0.3s ease;animation:waPulse 3s infinite;}
+@keyframes waPulse{0%,100%{box-shadow:0 0 0 rgba(37,211,102,0)}50%{box-shadow:0 0 18px rgba(37,211,102,0.22)}}
+.cc-ig{display:flex;align-items:center;gap:1rem;padding:1.2rem 1.5rem;border-radius:1.1rem;background:linear-gradient(135deg,rgba(225,48,108,0.1),rgba(88,81,219,0.08));border:1px solid rgba(225,48,108,0.22);text-decoration:none;color:#fff;margin-bottom:0.8rem;transition:all 0.3s ease;}
+.cc-wa:hover,.cc-ig:hover{transform:translateX(5px);}
+.cc-icon{font-size:1.7rem;flex-shrink:0;}
+.cc-action{font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.32);margin-bottom:0.12rem;}
+.cc-main{font-family:'Dancing Script',cursive;font-size:1.2rem;}
+.cc-sub2{font-size:0.7rem;color:rgba(255,255,255,0.28);}
+.yes-final{margin-top:1.2rem;padding:1rem 1.2rem;border-radius:1rem;background:rgba(0,0,0,0.3);border:1px dashed rgba(255,215,0,0.15);text-align:center;}
+.yes-final p{font-family:'Dancing Script',cursive;font-size:1.1rem;color:rgba(255,215,0,0.5);}
+.yes-final .yf-sub{font-size:0.73rem;color:rgba(255,255,255,0.2);margin-top:0.25rem;font-style:italic;}
+
+/* ═══ MAYBE SECTION ═══ */
+.maybe-card{padding:3.5rem 2.5rem;border-radius:2.5rem;text-align:center;background:linear-gradient(135deg,rgba(10,10,25,0.96),rgba(6,6,18,0.99));border:1px solid rgba(30,144,255,0.1);}
+.maybe-flower{font-size:2.8rem;margin-bottom:1.3rem;display:block;}
+.maybe-title{font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:0.4rem;}
+.maybe-sub-hindi{font-family:'Tiro Devanagari Hindi',serif;font-size:0.95rem;color:rgba(255,255,255,0.32);margin-bottom:1.5rem;line-height:2;}
+.maybe-msg{font-size:1rem;color:rgba(255,255,255,0.4);line-height:2.1;margin-bottom:1rem;}
+.maybe-love{font-family:'Dancing Script',cursive;font-size:1.45rem;color:rgba(30,144,255,0.8);margin:1.2rem 0;}
+.privacy-box{margin:1.5rem 0;padding:1.2rem 1.5rem;border-radius:1rem;background:rgba(255,165,0,0.05);border:1px solid rgba(255,165,0,0.18);text-align:left;}
+.privacy-title{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,165,0,0.5);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.4rem;}
+.privacy-box p{font-size:0.85rem;color:rgba(255,255,255,0.35);line-height:1.9;}
+.privacy-box p strong{color:rgba(255,255,255,0.62);}
+.maybe-effort{font-family:'Tiro Devanagari Hindi',serif;font-size:0.82rem;color:rgba(255,255,255,0.22);font-style:italic;margin-top:1rem;line-height:1.9;}
+
+/* ═══ NO SECTION ═══ */
+.no-card{padding:3.5rem 2.5rem;border-radius:2.5rem;text-align:center;background:linear-gradient(135deg,rgba(8,8,18,0.97),rgba(5,5,12,0.99));border:1px solid rgba(255,71,87,0.07);}
+.no-flower{font-size:2.8rem;margin-bottom:1.3rem;display:block;}
+.no-title{font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:0.4rem;}
+.no-sub-hindi{font-family:'Tiro Devanagari Hindi',serif;font-size:0.95rem;color:rgba(255,255,255,0.3);margin-bottom:1.5rem;line-height:2;}
+.no-msg{font-size:1rem;color:rgba(255,255,255,0.38);line-height:2.2;margin-bottom:1rem;}
+.no-line{font-family:'Dancing Script',cursive;font-size:1.4rem;color:rgba(255,107,107,0.55);margin:1.2rem 0;}
+.no-privacy{margin:1.5rem 0;padding:1.1rem 1.4rem;border-radius:1rem;background:rgba(255,165,0,0.04);border:1px solid rgba(255,165,0,0.13);text-align:left;}
+.no-privacy p{font-size:0.82rem;color:rgba(255,255,255,0.3);line-height:1.9;}
+.no-privacy p strong{color:rgba(255,255,255,0.55);}
+.no-closing{font-family:'Tiro Devanagari Hindi',serif;font-size:0.8rem;color:rgba(255,255,255,0.18);margin-top:1rem;font-style:italic;line-height:2;}
+.no-sign{font-family:'Dancing Script',cursive;font-size:1.1rem;color:rgba(255,255,255,0.18);margin-top:0.8rem;}
+
+/* ═══ STORY (bottom) ═══ */
+#story{padding:6rem 1.5rem;}
+.story-inner{max-width:820px;margin:0 auto;}
+.story-card{padding:2.5rem;border-radius:2.5rem;}
+.cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin:2rem 0;}
+.mini-card{padding:1.4rem;border-radius:1.3rem;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.07);}
+.mini-card h3{font-size:1.05rem;font-weight:600;margin-bottom:0.3rem;}
+.mini-card p{font-size:0.82rem;color:rgba(255,255,255,0.45);line-height:1.7;}
+.mini-card .msub{font-size:0.7rem;color:rgba(255,255,255,0.2);margin-top:0.3rem;}
+.story-tag{text-align:center;margin-top:1.5rem;padding:1rem;border-radius:1rem;background:rgba(255,255,255,0.015);border:1px dashed rgba(255,255,255,0.07);}
+.story-tag p{font-family:'Dancing Script',cursive;font-size:1rem;color:rgba(255,255,255,0.32);}
+.built-badge{margin-top:1.2rem;padding:1.1rem 1.4rem;border-radius:1rem;background:linear-gradient(135deg,rgba(255,71,87,0.06),rgba(192,132,252,0.04));border:1px solid rgba(255,71,87,0.14);text-align:center;}
+.built-badge p:first-child{color:rgba(255,100,80,0.7);font-size:0.88rem;margin-bottom:0.2rem;}
+.built-badge p:last-child{font-size:0.7rem;color:rgba(255,255,255,0.22);}
+
+/* FOOTER */
+footer{padding:3.5rem 1.5rem;text-align:center;border-top:1px solid var(--border);}
+.footer-sig{font-family:'Dancing Script',cursive;font-size:1.55rem;}
+.footer-sub{color:rgba(255,255,255,0.16);font-size:0.66rem;letter-spacing:0.2em;text-transform:uppercase;margin-top:0.4rem;}
+
+/* CONFETTI */
+.conf{position:fixed;pointer-events:none;z-index:9998;border-radius:2px;}
+@keyframes confFall{to{transform:translateY(110vh) rotate(720deg);opacity:0;}}
+
+@media(max-width:600px){
+  .eyes-wrap{width:260px;height:115px;}
+  .her-eye{width:108px;height:66px;top:28px;}
+  .iris{width:48px;height:48px;}
+  .pupil{width:18px;height:18px;}
+  .cards-grid,.her-features{grid-template-columns:1fr;}
+  nav .nav-links{display:none;}
+  .sh-card,.q-card,.story-card,.maybe-card,.no-card,.pride-card,.letter-card{padding:2rem 1.3rem;}
+  .btn-row{flex-direction:column;align-items:stretch;}
+  .choice-btn{min-width:unset;}
+  .pride-top{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<!-- MUSIC: YouTube iframe — hidden, autoplay trick -->
+<div id="yt-frame-wrap" style="position:fixed;top:-9999px;left:-9999px;width:0;height:0;overflow:hidden;pointer-events:none;">
+  <iframe id="ytIframe"
+    src="https://www.youtube.com/embed/9T-Zbxg9X_4?autoplay=1&start=38&loop=1&playlist=9T-Zbxg9X_4&controls=0&mute=0&enablejsapi=1&origin=null"
+    allow="autoplay; encrypted-media"
+    allowfullscreen
+    style="width:1px;height:1px;border:none;">
+  </iframe>
+</div>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="loader-heart">💚</div>
+  <div class="loader-name">Chayya</div>
+  <div class="loader-sub">A website built for you · 5 precious days</div>
+  <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+</div>
+
+<div class="love-cursor" id="cursor">💫</div>
+<div class="cinematic-bg"></div>
+<div class="aurora"></div>
+<div class="hearts-bg" id="heartsContainer"></div>
+
+<!-- Music btn -->
+<div class="music-wrap">
+  <div class="music-label">Music</div>
+  <button class="music-btn" id="musicBtn" onclick="toggleMusic()" title="Play/Pause">🎵</button>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">For Chayya 💚</div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#shayari">Shayari</a>
+      <a href="#heart">Connect</a>
+      <a href="#story">About</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section id="home">
+  <div class="hero-inner">
+    <div class="eyes-wrap reveal active">
+      <div class="her-eye left"><div class="lashes"></div><div class="iris"><div class="iris-lines"></div><div class="pupil"></div><div class="shine"></div></div></div>
+      <div class="her-eye right"><div class="lashes"></div><div class="iris"><div class="iris-lines"></div><div class="pupil"></div><div class="shine"></div></div></div>
+    </div>
+
+    <p class="hero-for reveal">A website built only for</p>
+
+    <!-- CHAYYA NAME — HIGHLIGHTED BEAUTIFULLY -->
+    <div class="name-glow reveal">
+      <span class="chayya-name">Chayya</span>
+    </div>
+
+    <div class="hero-line reveal"></div>
+
+    <p class="hero-tagline reveal">
+      I finally know your name — <strong>Chayya.</strong>
+      <span class="hero-hindi">अब नाम भी पता है... पर दिल तो पहले से जानता था।</span>
+    </p>
+
+    <div class="reveal">
+      <div class="days-badge">🛠️ <span>5 Precious Days</span> · My own code · All for you</div>
+    </div>
+
+    <span class="hero-quote reveal">"Doorie... doorie... doorie hai mann ve"</span>
+    <div class="reveal"><span class="heartbeat" style="font-size:3.5rem;">💚</span></div>
+    <div class="hero-scroll">↓</div>
+  </div>
+</section>
+
+<!-- ═══════════ ROMANTIC SECTION ═══════════ -->
+<section id="romantic">
+  <div class="romantic-inner">
+    <div class="section-title love-gradient reveal">Sirf Tum · सिर्फ तुम</div>
+    <div class="section-sub reveal">Things I noticed · जो मैंने महसूस किया</div>
+
+    <!-- What I notice about her -->
+    <div class="her-features reveal">
+      <div class="feat-item">
+        <span class="feat-icon">👁️</span>
+        <div class="feat-title"><strong style="color:var(--green);">Woh Aankhen</strong>वो आँखें जो बिना बोले बहुत कुछ कह जाती हैं। Those eyes that speak without words.</div>
+      </div>
+      <div class="feat-item">
+        <span class="feat-icon">🌸</span>
+        <div class="feat-title"><strong style="color:var(--purple);">Woh Presence</strong>जब तुम पास होती हो, हवा कुछ और ही लगती है। When you're near, even the air feels different.</div>
+      </div>
+      <div class="feat-item">
+        <span class="feat-icon">📖</span>
+        <div class="feat-title"><strong style="color:var(--teal);">PCB Padh Rahi Ho</strong>Physics, Chemistry, Biology — aur uske beech bhi tum ek kavita lagte ho. Even in science, you look like poetry.</div>
+      </div>
+      <div class="feat-item">
+        <span class="feat-icon">💚</span>
+        <div class="feat-title"><strong style="color:var(--gold);">Woh Smile</strong>Mujhe nahi pata tum muskurati kaise ho — par dil ke andar ek dhaka lagta hai. That smile — I can't explain what it does to me.</div>
+      </div>
+    </div>
+
+    <!-- Romantic letter -->
+    <div class="letter-card glass reveal">
+      <div class="letter-intro">A letter · ek khatt</div>
+      <div class="letter-body">
+        <p>
+          <strong>Chayya,</strong><br><br>
+          Maine kabhi socha nahi tha ki ek anjaan chehra itni jagah le lega dil mein.
+          <span class="h">मैंने कभी नहीं सोचा था कि एक अनजान चेहरा इतनी जगह ले लेगा दिल में।</span>
+        </p>
+        <br>
+        <p>
+          Tum PCB padh rahi ho — Physics ke formulas, Chemistry ke equations, Biology ke diagrams.
+          Aur main SSC CGL ke liye baith ke padhta hoon. Dono ki duniya alag hai.
+          <span class="h">दोनों की दुनिया अलग है। पर दिल अपना रास्ता खुद ढूंढ लेता है।</span>
+        </p>
+        <br>
+        <p>
+          Par dil apna raasta khud dhoondh leta hai.<br>
+          Isliye maine 5 din mein ye website banayi — sirf tumhare liye.
+          <span class="h">इसलिए मैंने 5 दिन में यह website बनाई — सिर्फ तुम्हारे लिए।</span>
+        </p>
+        <br>
+        <p>
+          Har ek line of code mein ek khayaal tha — <strong>Chayya.</strong><br>
+          Har ek color mein ek ehsaas tha — <strong>Chayya.</strong><br>
+          Har ek animation mein ek dua thi — <strong>Chayya, khush raho.</strong>
+        </p>
+      </div>
+      <div class="letter-sign">— Anil 💚</div>
+    </div>
+
+    <!-- Rose divider -->
+    <div class="rose-divider reveal">🌹 ✦ 🌹 ✦ 🌹</div>
+  </div>
+</section>
+
+<!-- ═══════════ CODING PRIDE ═══════════ -->
+<section id="pride">
+  <div class="pride-inner">
+    <div class="section-title love-gradient reveal">5 Din · 1 Dil · 💚</div>
+    <div class="section-sub reveal">Maine khud banaya — sirf tumhare liye</div>
+
+    <div class="pride-card glass reveal">
+      <div class="pride-top">
+        <div class="code-badge" style="background:rgba(46,213,115,0.07);border:1px solid rgba(46,213,115,0.18);">
+          <div class="cb-num" style="color:var(--green);">5</div>
+          <div class="cb-label">Precious Days</div>
+        </div>
+        <div class="code-badge" style="background:rgba(255,71,87,0.07);border:1px solid rgba(255,71,87,0.18);">
+          <div class="cb-num" style="color:var(--red);">∞</div>
+          <div class="cb-label">Lines of Feeling</div>
+        </div>
+        <div class="code-badge" style="background:rgba(192,132,252,0.07);border:1px solid rgba(192,132,252,0.18);">
+          <div class="cb-num" style="color:var(--purple);">1</div>
+          <div class="cb-label">Heart Behind It</div>
+        </div>
+      </div>
+
+      <p class="pride-para reveal">
+        Maine ye website <strong>khud banayi hai</strong> — apni <strong>coding knowledge</strong> se.
+        Koi ready-made template nahi liya, koi shortcut nahi mara.
+        Har element apne haath se likha hai, apne dimag se socha hai.
+        <span class="h">मैंने यह website खुद बनाई है — अपनी coding knowledge से। हर element खुद लिखा है।</span>
+      </p>
+      <p class="pride-para reveal">
+        <strong>5 precious din diye hain maine is website ko.</strong>
+        Raat ko soya nahi poori tarah. Subah uthke phir code kiya.
+        Bas isliye ki tum ek baar is screen pe meri baat padho.
+        <span class="h">5 क़ीमती दिन दिए हैं इस website को। रात को सोया नहीं — बस इसलिए कि तुम यह पढ़ो।</span>
+      </p>
+
+      <div class="tech-pills reveal">
+        <span class="tech-pill">HTML5</span>
+        <span class="tech-pill">CSS Animations</span>
+        <span class="tech-pill">JavaScript</span>
+        <span class="tech-pill">Glassmorphism</span>
+        <span class="tech-pill">Eye Animations</span>
+        <span class="tech-pill">Scroll Reveal</span>
+        <span class="tech-pill">YouTube Music API</span>
+        <span class="tech-pill">Mobile Responsive</span>
+        <span class="tech-pill">0 Shortcuts · All Heart</span>
+        <span class="tech-pill">💚 Made for Chayya</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SHAYARI ═══════════ -->
+<section id="shayari">
+  <div class="shayari-inner">
+    <div class="section-title love-gradient reveal">Dil Ki Baat · दिल की बात</div>
+    <div class="section-sub reveal">Words I couldn't say aloud / जो शब्द बोल न सका</div>
+
+    <!-- Shayari 1 -->
+    <div class="sh-card glass reveal">
+      <div class="sh-emojis">🦋 🍷</div>
+      <div class="sh-big hindi-text reveal">बताने की बात नहीं है,</div>
+      <div class="sh-white hindi-text reveal">पर बताने दोगी क्या ?</div>
+      <div style="height:0.8rem;"></div>
+      <div class="sh-white hindi-text reveal" style="font-size:clamp(1.1rem,3vw,1.6rem);color:rgba(255,255,255,0.62);">इश्क़ बेपनाह है तुमसे,</div>
+      <div class="sh-white hindi-text reveal" style="font-size:clamp(1.1rem,3vw,1.6rem);color:rgba(255,255,255,0.62);">एक बार जताने दोगी क्या ?</div>
+      <div class="sh-divider"></div>
+      <div class="sh-red hindi-text reveal">प्यार बहुत है तुमसे,</div>
+      <div class="sh-big hindi-text reveal">तुम जताने दोगी क्या ?</div>
+      <div class="sh-bottom-emojis reveal">💗 🌹 💚</div>
+      <div class="sh-english reveal">"Something is hard to say, yet will you let me?<br>My love for you is boundless — will you let me show it?"</div>
+      <div class="sh-author">— Anil, for Chayya</div>
+    </div>
+
+    <!-- Shayari 2 -->
+    <div class="sh-card glass reveal">
+      <div class="sh-emojis">✨ 🌙</div>
+      <div class="sh-white hindi-text reveal">जो सुरूर है तेरी आँखों में</div>
+      <div class="sh-white hindi-text reveal" style="color:rgba(255,255,255,0.6);">वो बात कहाँ मैखाने में,</div>
+      <div style="height:0.8rem;"></div>
+      <div class="sh-green hindi-text reveal">बस तू मिल जाए तो फिर</div>
+      <div class="sh-big hindi-text reveal" style="font-size:clamp(1.5rem,4.5vw,2.2rem);">क्या रखा है ज़माने में !</div>
+      <div class="sh-bottom-emojis reveal">💗 🌹 💚</div>
+      <div class="sh-english reveal">"The intoxication in your eyes — no wine could match it.<br>If only I had you, what else would this whole world matter?"</div>
+      <div class="sh-author">— Inspired by Jaun Elia, for Chayya</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CONNECT ═══════════ -->
+<section id="heart">
+  <div class="contact-inner">
+    <div class="section-title love-gradient reveal">Ek Sawaal · एक सवाल</div>
+    <div class="section-sub reveal">No right or wrong · कोई सही या गलत नहीं</div>
+
+    <div class="q-card glass reveal" id="qCard">
+      <div class="big-q love-gradient">"Do you feel something too?"</div>
+      <div class="big-q-hindi">"क्या तुम भी... कुछ महसूस करती हो?"</div>
+      <p class="q-sub">
+        Ye sirf tumhara faisla hai. Koi pressure nahi.<br>
+        <span style="font-family:'Tiro Devanagari Hindi',serif;">यह सिर्फ तुम्हारा फ़ैसला है। कोई दबाव नहीं।</span>
+      </p>
+      <div class="btn-row">
+        <button class="choice-btn btn-yes" onclick="showYes()">
+          <span class="b-emoji">💚</span>
+          <span class="b-text">Haan, feel karti hoon</span>
+          <span class="b-sub">हाँ, मैं भी महसूस करती हूँ</span>
+        </button>
+        <button class="choice-btn btn-maybe" onclick="showMaybe()">
+          <span class="b-emoji">🌸</span>
+          <span class="b-text">Soch ke bataungi...</span>
+          <span class="b-sub">मुझे थोड़ा सोचना है</span>
+        </button>
+        <button class="choice-btn btn-no" onclick="showNo()">
+          <span class="b-emoji">🕊️</span>
+          <span class="b-text">Nahi... sorry</span>
+          <span class="b-sub">नहीं... मुझे माफ़ करना</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ═══ YES ═══ -->
+    <div class="response-section" id="yesSection">
+      <div class="yes-hero">
+        <div class="yes-big">SHE SAID YES! 🎉</div>
+        <div class="yes-sub">Chayya loves me! 💚</div>
+        <div class="yes-quote">"Best day of my life..."</div>
+        <div class="yes-inner">
+          <div class="yes-iam">I'm <strong style="color:var(--red);">Anil</strong></div>
+          <div class="yes-love">I LOVE YOU CHAYYA 💛</div>
+        </div>
+
+        <div class="emo-shayri" style="border-left-color:var(--green);">
+          <div class="es-hindi">
+            तुमने हाँ कहा,<br>और लगा जैसे<br>सारी दुनिया एक साथ मुस्कुराई हो।<br>
+            जो दिल डरता था हर रोज़,<br>
+            <span style="color:var(--green);">आज वो दिल जीत गया।</span>
+          </div>
+          <div class="es-eng">"You said yes — and it felt like the whole world smiled at once.<br>The heart that feared every day... today, it won."</div>
+          <div class="es-author">— Anil, this moment</div>
+        </div>
+
+        <p style="text-align:center;font-size:0.68rem;color:rgba(255,255,255,0.22);margin:1rem 0 0.5rem;letter-spacing:0.1em;text-transform:uppercase;">👇 Connect with me 👇</p>
+        <a href="https://wa.me/917067968751" class="cc-wa" target="_blank">
+          <span class="cc-icon">💬</span>
+          <div style="flex:1;text-align:left;">
+            <div class="cc-action">Click to Chat!</div>
+            <div class="cc-main">+91 70679 68751</div>
+            <div class="cc-sub2">Message me now, Chayya! 🌸</div>
+          </div>
+          <span style="opacity:0.4;">→</span>
+        </a>
+        <a href="https://instagram.com/anil.dangi_18" class="cc-ig" target="_blank">
+          <span class="cc-icon">👀</span>
+          <div style="flex:1;text-align:left;">
+            <div class="cc-action">See My Photos!</div>
+            <div class="cc-main">@anil.dangi_18</div>
+            <div class="cc-sub2">See who loves you! 📸</div>
+          </div>
+          <span style="opacity:0.4;">→</span>
+        </a>
+        <div class="yes-final">
+          <p>"अब बस एक इंतज़ार है...<br>तुम्हारे पहले 'I Love You' का 💌"</p>
+          <div class="yf-sub">Waiting for your message, Chayya!</div>
+        </div>
+      </div>
+
+      <!-- CHANGE BUTTON — same size as others -->
+      <div style="text-align:center;margin-top:1.5rem;">
+        <button class="choice-btn btn-change" onclick="goBack()" style="display:inline-block;min-width:220px;">
+          <span class="b-emoji">🔄</span>
+          <span class="b-text">Jawab badalna chahti hoon</span>
+          <span class="b-sub">जवाब बदलना चाहती हूँ</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ═══ MAYBE ═══ -->
+    <div class="response-section" id="maybeSection">
+      <div class="maybe-card">
+        <span class="maybe-flower">🌸</span>
+        <div class="maybe-title">Koi Jaldi Nahi...</div>
+        <div class="maybe-sub-hindi">कोई जल्दी नहीं है।<br>There is no rush at all.</div>
+        <p class="maybe-msg">
+          Sochna tumhara haq hai, Chayya.<br>
+          <span style="font-family:'Tiro Devanagari Hindi',serif;">सोचना तुम्हारा हक़ है।</span><br><br>
+          Main yahan hoon — jab bhi, jab tumhara dil kahe.
+        </p>
+
+        <div class="emo-shayri" style="border-left-color:var(--teal);">
+          <div class="es-hindi">
+            इंतज़ार करना आता है मुझे,<br>
+            क्योंकि तुम उस इंतज़ार के काबिल हो।<br>
+            जवाब जो भी हो —<br>
+            <span style="color:var(--teal);">तुम्हारे लिए दुआ हमेशा रहेगी।</span>
+          </div>
+          <div class="es-eng">"I know how to wait — because you are worth that wait.<br>Whatever the answer, my prayers for you will never end."</div>
+          <div class="es-author">— Anil</div>
+        </div>
+
+        <div class="maybe-love">"Jab bhi taiyaar ho... main hoon." 💙</div>
+        <div class="privacy-box">
+          <div class="privacy-title">🙏 Ek request · एक विनती</div>
+          <p>Please <strong>kisi ko mat batana</strong> — na friends ko, na kisi aur ko.<br>
+          <span style="font-family:'Tiro Devanagari Hindi',serif;">इसे <strong>अपने तक रखना</strong>। यह मेरा दिल है।</span><br>
+          🔒 This stays between only us.</p>
+        </div>
+        <p class="maybe-effort">"Maine 5 din diye the is website ko...<br>Shayad tumhari ek muskaan hi kaafi hogi." — Anil</p>
+      </div>
+
+      <!-- CHANGE BUTTON -->
+      <div style="text-align:center;margin-top:1.5rem;">
+        <button class="choice-btn btn-change" onclick="goBack()" style="display:inline-block;min-width:220px;">
+          <span class="b-emoji">🔄</span>
+          <span class="b-text">Jawab badalna chahti hoon</span>
+          <span class="b-sub">जवाब बदलना चाहती हूँ</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ═══ NO ═══ -->
+    <div class="response-section" id="noSection">
+      <div class="no-card">
+        <span class="no-flower">🕊️</span>
+        <div class="no-title">Teri Khushi, Meri Dua</div>
+        <div class="no-sub-hindi">तेरी खुशी, मेरी दुआ।<br>Your happiness is my prayer.</div>
+        <p class="no-msg">
+          Teri "nahi" bhi mujhe manzoor hai, Chayya.<br>
+          <span style="font-family:'Tiro Devanagari Hindi',serif;">तेरी "नहीं" भी मुझे मंज़ूर है।</span><br><br>
+          Feelings ko force nahi kiya jaata. Tum apni zindagi khushi se jiyo.
+        </p>
+
+        <div class="emo-shayri" style="border-left-color:rgba(255,107,107,0.5);">
+          <div class="es-hindi">
+            जाते जाते बस इतना कहूँगा,<br>
+            खुश रहो — हर हाल में।<br>
+            जो दिल ने तुम्हें चाहा था,<br>
+            <span style="color:rgba(255,155,155,0.8);">वो दिल हमेशा तुम्हारी भलाई चाहेगा।</span>
+          </div>
+          <div class="es-eng">"As I leave, I only say this — stay happy, always.<br>The heart that loved you will always wish you well."</div>
+          <div class="es-author">— Anil, with respect</div>
+        </div>
+
+        <div class="no-line">"Zindagi khul ke jiyo, Chayya. 🕊️"</div>
+        <p class="no-msg" style="font-size:0.9rem;">
+          PCB padho, apne sapne jiyo.<br>
+          <span style="font-family:'Tiro Devanagari Hindi',serif;">अपने सपने जियो। यह सफ़र तुम्हारा है।</span><br>
+          Ye journey khatam hoti hai — tumhari nahi.
+        </p>
+
+        <div class="no-privacy">
+          <p>🙏 <strong>Please kisi ko mat batana</strong> — yeh sirf hamare beech rahe.<br>
+          <span style="font-family:'Tiro Devanagari Hindi',serif;">यह बात <strong>सिर्फ हमारे बीच</strong> रहे।</span><br>
+          🔒 This stays private, always.</p>
+        </div>
+
+        <p class="no-closing">"5 din ki mehnat ka koi pachtawa nahi —<br>kyunki tumhare liye kuch bhi karna mujhe kabhi nahin khatakta."<br>
+        <span style="font-family:'Tiro Devanagari Hindi',serif;">पाँच दिन की मेहनत का कोई पछतावा नहीं।</span></p>
+        <div class="no-sign">— Anil 💚</div>
+      </div>
+
+      <!-- CHANGE BUTTON -->
+      <div style="text-align:center;margin-top:1.5rem;">
+        <button class="choice-btn btn-change" onclick="goBack()" style="display:inline-block;min-width:220px;">
+          <span class="b-emoji">🔄</span>
+          <span class="b-text">Jawab badalna chahti hoon</span>
+          <span class="b-sub">जवाब बदलना चाहती हूँ</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ STORY (bottom) ═══════════ -->
+<section id="story">
+  <div class="story-inner">
+    <div class="section-title love-gradient reveal">Hamare Raaste · हमारे रास्ते</div>
+    <div class="section-sub reveal">Two parallel journeys · दो समानांतर सफ़र</div>
+    <div class="story-card glass reveal">
+      <div style="text-align:center;font-size:2.2rem;margin-bottom:1.3rem;">📚 💻</div>
+      <div class="cards-grid">
+        <div class="mini-card" style="border-color:rgba(192,132,252,0.2);">
+          <h3 style="color:var(--purple);">Chayya 💚</h3>
+          <p>PCB — Physics, Chemistry, Biology</p>
+          <div class="msub">Science ki duniya mein kavita 🌸</div>
+        </div>
+        <div class="mini-card" style="border-color:rgba(46,213,115,0.2);">
+          <h3 style="color:var(--green);">Anil 💻</h3>
+          <p>SSC CGL Preparation</p>
+          <div class="msub">Code aur kitaab dono saath 📖</div>
+        </div>
+      </div>
+      <div class="story-tag"><p>"Do alag raaste... ek hi dil." ✨</p></div>
+      <div class="built-badge">
+        <p>❤️ Built with love · <strong>5 Precious Days</strong> · 💻 My own coding skills</p>
+        <p>Har line of code tumhare liye likhi hai. / हर line तुम्हारे लिए लिखी है।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="reveal">
+  <div class="footer-sig love-gradient">— Anil Dangi</div>
+  <div class="footer-sub">Made with love · From Madhya Pradesh · 💚</div>
+  <div style="margin-top:1.2rem;font-size:1.1rem;opacity:0.18;">💚</div>
+</footer>
+
+<script>
+// ═══ LOADER ═══
+window.addEventListener('load',()=>{
+  document.getElementById('loaderFill').style.width='100%';
+  setTimeout(()=>document.getElementById('loader').classList.add('done'),2800);
+  setTimeout(spawnHearts,3000);
+});
+
+// ═══ CURSOR ═══
+const cur=document.getElementById('cursor');
+document.addEventListener('mousemove',e=>{
+  cur.style.left=e.clientX+'px';
+  cur.style.top=e.clientY+'px';
+});
+
+// ═══ FLOATING PETALS ═══
+function spawnHearts(){
+  const c=document.getElementById('heartsContainer');
+  const em=['🌹','💚','💗','✨','🦋','🌸','⭐','💫','🍀','❤️'];
+  setInterval(()=>{
+    const h=document.createElement('div');
+    h.className='h-p';
+    h.textContent=em[Math.floor(Math.random()*em.length)];
+    h.style.left=Math.random()*100+'vw';
+    h.style.fontSize=(9+Math.random()*14)+'px';
+    h.style.animationDuration=(14+Math.random()*10)+'s';
+    h.style.animationDelay=(Math.random()*3)+'s';
+    c.appendChild(h);
+    setTimeout(()=>h.remove(),26000);
+  },900);
+}
+
+// ═══ SCROLL REVEAL ═══
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('active');});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// ═══ EYE GAZE FOLLOWS CURSOR ═══
+document.addEventListener('mousemove',e=>{
+  document.querySelectorAll('.iris').forEach(iris=>{
+    const rect=iris.closest('.her-eye').getBoundingClientRect();
+    const ex=rect.left+rect.width/2, ey=rect.top+rect.height/2;
+    const angle=Math.atan2(e.clientY-ey,e.clientX-ex);
+    const dist=Math.min(7,Math.hypot(e.clientX-ex,e.clientY-ey)/28);
+    iris.style.transform=`translate(calc(-50% + ${Math.cos(angle)*dist}px), calc(-50% + ${Math.sin(angle)*dist}px))`;
+  });
+});
+
+// ═══ MUSIC — YouTube iframe approach ═══
+// The iframe is already loaded with autoplay=1.
+// On mobile, browsers block autoplay without user gesture.
+// We handle it by playing on first user touch/click.
+const ytFrame = document.getElementById('ytIframe');
+const mBtn = document.getElementById('musicBtn');
+let musicOn = false;
+
+function playMusic(){
+  // postMessage to YT iframe to play
+  try {
+    ytFrame.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}','*');
+  } catch(e){}
+  musicOn = true;
+  mBtn.classList.add('playing');
+}
+
+function pauseMusic(){
+  try {
+    ytFrame.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}','*');
+  } catch(e){}
+  musicOn = false;
+  mBtn.classList.remove('playing');
+}
+
+function toggleMusic(){
+  if(musicOn){ pauseMusic(); } else { playMusic(); }
+}
+
+// Auto-play on first user interaction (tap/click anywhere)
+let firstPlay = false;
+function tryAutoPlay(){
+  if(!firstPlay){
+    firstPlay = true;
+    playMusic();
+  }
+}
+document.addEventListener('touchstart', tryAutoPlay, {once:true});
+document.addEventListener('click', tryAutoPlay, {once:true});
+// Also try after 3s (some browsers allow delayed autoplay)
+setTimeout(tryAutoPlay, 3000);
+
+// ═══ DECISIONS (reversible) ═══
+function goBack(){
+  document.querySelectorAll('.response-section').forEach(s=>{
+    s.classList.remove('show');
+    s.style.display='';
+  });
+  document.getElementById('qCard').style.display='block';
+  setTimeout(()=>document.getElementById('heart').scrollIntoView({behavior:'smooth'}),100);
+}
+
+function showYes(){
+  document.getElementById('qCard').style.display='none';
+  document.querySelectorAll('.response-section').forEach(s=>s.classList.remove('show'));
+  document.getElementById('yesSection').classList.add('show');
+  fireConfetti();
+  setTimeout(()=>document.getElementById('heart').scrollIntoView({behavior:'smooth'}),100);
+}
+
+function showMaybe(){
+  document.getElementById('qCard').style.display='none';
+  document.querySelectorAll('.response-section').forEach(s=>s.classList.remove('show'));
+  document.getElementById('maybeSection').classList.add('show');
+  setTimeout(()=>document.getElementById('heart').scrollIntoView({behavior:'smooth'}),100);
+}
+
+function showNo(){
+  document.getElementById('qCard').style.display='none';
+  document.querySelectorAll('.response-section').forEach(s=>s.classList.remove('show'));
+  document.getElementById('noSection').classList.add('show');
+  setTimeout(()=>document.getElementById('heart').scrollIntoView({behavior:'smooth'}),100);
+}
+
+// ═══ CONFETTI ═══
+function fireConfetti(){
+  const cols=['#ff4757','#ffd32a','#2ed573','#1e90ff','#ff6b81','#c084fc','#fff'];
+  const shapes=['❤️','💚','⭐','🌹','✨','🎊','💗'];
+  for(let i=0;i<120;i++){
+    setTimeout(()=>{
+      const c=document.createElement('div');
+      c.className='conf';
+      if(Math.random()>0.45){
+        c.textContent=shapes[Math.floor(Math.random()*shapes.length)];
+        c.style.cssText=`left:${Math.random()*100}vw;top:-20px;font-size:${11+Math.random()*12}px;background:transparent;width:auto;height:auto;`;
+      }else{
+        c.style.cssText=`left:${Math.random()*100}vw;top:-10px;background:${cols[Math.floor(Math.random()*cols.length)]};width:${5+Math.random()*9}px;height:${5+Math.random()*9}px;`;
+      }
+      c.style.animation=`confFall ${1.5+Math.random()*2.5}s ease forwards`;
+      document.body.appendChild(c);
+      setTimeout(()=>c.remove(),4500);
+    },i*28);
+  }
+}
+</script>
+</body>
+</html>
